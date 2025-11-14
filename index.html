@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Rive Roleplay - MTA Roleplay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Rive Roleplay, %50 sosyal %50 gun roleplay tarzına sahip Türk MTA Roleplay sunucusudur.">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+<header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo.png" class="logo-img" alt="Rive Logo">
+            </div>
+
+
+            <nav>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span><span></span><span></span>
+                </div>
+                <ul id="navMenu">
+                    <li><a href="#anasayfa">Ana Sayfa</a></li>
+                    <li><a href="#hakkinda">Hakkımızda</a></li>
+                    <li><a href="#ozellikler">Sistemler</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#katil">Katıl</a></li>
+                    <li><a href="#indir" class="nav-cta">MTA:SA İndir</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- DOWNLOAD BAR -->
+        <div class="download-bar" id="indir">
+            <div class="download-bar-left">GEREKLİ OYUN DOSYALARI</div>
+            <div class="download-links">
+                <a href="https://dosya.co/3w8r32682m6z/Gta_san_andreas_-_500MB.rar.html" target="_blank" class="download-link-btn">
+                    <span></span> <strong>GTA San Andreas</strong> (500MB)
+                </a>
+                <a href="https://mirror-cdn.multitheftauto.com/mtasa/main/mtasa-1.6.exe" target="_blank" class="download-link-btn">
+                    <span></span> <strong>MTA:SA 1.6 Client</strong>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <main id="anasayfa">
+        <section class="hero fade-in">
+            <div class="hero-overlay"></div>
+            <div class="hero-inner slide-up">
+
+                <div>
+                    <div class="badge glow-soft">
+                        <div class="badge-dot"></div>
+                        <span>%50 Sosyal RP • %50 Gun RP</span>
+                    </div>
+
+                    <h1 class="glow-title">Hikayeni <span>Rive Roleplay</span> üzerinde yaz.</h1>
+
+                    <p class="hero-sub fade-in-delayed">
+                        Sosyal rol yapıyı silahlı çatışmalarla harmanlayan, dengeli ve aksiyon dolu bir 
+                        <strong>MTA:SA Roleplay</strong> deneyimi.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="mtasa://193.164.7.179:22003" class="btn-primary glow-boost">Sunucuya Bağlan ➜</a>
+						<a href="https://discord.gg/9cUCFgPu" target="_blank" class="btn-ghost glow-boost discord-btn">
+						Discord’a Katıl
+						<img src="images/discord.png" class="discord-icon" alt="Discord Logo">
+						</a>
+
+
+                    </div>
+
+                    <div class="hero-meta">
+                        <div class="meta-pill"><strong>MTA</strong> 1.6</div>
+                        <div class="meta-pill">%50 Sosyal • %50 Gun RP</div>
+                    </div>
+                </div>
+
+                <!-- HERO SIDE CARD -->
+                <aside class="hero-card neon float-up">
+                    <div class="card-inner">
+
+                        <div class="card-header">
+                            <div class="card-title">Sunucu Paneli</div>
+                            <div class="card-status">
+                                <span class="status-dot"></span> Çevrimiçi
+                            </div>
+                        </div>
+
+                        <div class="server-ip-box">
+                            <div class="server-ip-label">Sunucu IP Adresi</div>
+                            <div class="server-ip">
+                                <code>193.164.7.179:22003</code>
+                                <button class="copy-btn" onclick="copyIP()">Kopyala</button>
+                            </div>
+                        </div>
+
+                        <div class="server-stats">
+                            <div class="stat">
+                                <div class="stat-label">Oyuncu</div>
+                                <div class="stat-value" id="playerCount">+30 Rekor</div>
+                            </div>
+
+                            <div class="stat">
+                                <div class="stat-label">Tarz</div>
+                                <div class="stat-value">%50 Sosyal • %50 Gun</div>
+                            </div>
+
+                            <div class="stat">
+                                <div class="stat-label">Durum</div>
+                                <div class="stat-value">Aktif</div>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <div class="card-tags">
+                                <span class="card-tag">Türkçe</span>
+                                <span class="card-tag">Roleplay</span>
+                                <span class="card-tag">PvP & Sosyal</span>
+                            </div>
+                            <div>Rive RP • 2025</div>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- Hakkımızda -->
+        <section id="hakkinda">
+            <h2 class="section-title"><span>Rive</span> Roleplay Nedir?</h2>
+            <div class="join-container">
+                <p style="text-align:center; color:#b5b5c7; max-width:800px; margin:auto; font-size:15px;">
+                    Rive Roleplay, Türkiye’nin en yenilikçi RP deneyimlerinden birini oluşturmayı amaçlayan 
+                    modern, dengeli ve özgün bir MTA:SA Roleplay sunucusudur.
+                </p>
+            </div>
+        </section>
+
+        <!-- Özellikler -->
+        <section id="ozellikler">
+            <h2 class="section-title"><span>Özellikler</span></h2>
+
+            <div class="features-container">
+                <div class="feature-card depth-3d glow-focus">
+                    <div class="feature-icon">🔥</div>
+                    <div class="feature-title">Optimizasyon</div>
+                    <div class="feature-text">Düşük ping ve stabil FPS için optimize edilmiş altyapı.</div>
+                </div>
+
+                <div class="feature-card depth-3d glow-focus">
+                    <div class="feature-icon">⚔️</div>
+                    <div class="feature-title">Dengeli Gun RP</div>
+                    <div class="feature-text">Silahlı çatışmalar ve sosyal RP arasında mükemmel denge.</div>
+                </div>
+
+                <div class="feature-card depth-3d glow-focus">
+                    <div class="feature-icon">💬</div>
+                    <div class="feature-title">Aktif Topluluk</div>
+                    <div class="feature-text">Akıcı ve keyifli roleplay için canlı topluluk.</div>
+                </div>
+
+                <div class="feature-card depth-3d glow-focus">
+                    <div class="feature-icon">🎭</div>
+                    <div class="feature-title">Sosyal RP</div>
+                    <div class="feature-text">Sadece çatışma değil; derin karakter gelişimi ve hikayeler.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeri -->
+        <section id="galeri">
+            <h2 class="section-title"><span>Galeri</span></h2>
+
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://i.imgur.com/eJfFTsi.jpeg"></div>
+                <div class="gallery-item"><img src="https://i.imgur.com/cHlKaxy.jpeg"></div>
+                <div class="gallery-item"><img src="https://i.imgur.com/0tOSscF.jpeg"></div>
+                <div class="gallery-item"><img src="https://i.imgur.com/HBsSanA.jpeg"></div>
+            </div>
+        </section>
+
+        <!-- Katıl -->
+        <section id="katil">
+            <h2 class="section-title"><span>Sunucuya</span> Nasıl Katılırsın?</h2>
+
+            <div class="join-container">
+
+                <div class="join-step border-animated">
+                    <div class="join-number">1</div>
+                    <div class="join-text">
+                        <h3>GTA San Andreas'ı Kur</h3>
+                        <p>500MB sıkıştırılmış sürümü indirip kurarak hızlıca başlayabilirsin.</p>
+                    </div>
+                </div>
+
+                <div class="join-step border-animated">
+                    <div class="join-number">2</div>
+                    <div class="join-text">
+                        <h3>MTA:SA 1.6 Client Yükle</h3>
+                        <p>En güncel MTA sürümünü indirerek oyuna güvenli giriş yap.</p>
+                    </div>
+                </div>
+
+                <div class="join-step border-animated">
+                    <div class="join-number">3</div>
+                    <div class="join-text">
+                        <h3>Sunucuya Bağlan</h3>
+                        <p>IP adresine tıklayarak direkt bağlanabilirsin.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">© <span id="year"></span> Rive Roleplay 2025 Matias Dev</div>
+    </footer>
+
+
+<script>
+<script>
+function updateServerInfo() {
+    fetch("http://193.164.7.179:22003/rrp_siteapi/riveAPI")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("playerCount").innerText = data.online + " / " + data.max;
+        })
+        .catch(err => console.log("API bağlanamadı:", err));
+}
+
+
+setInterval(updateServerInfo, 5000);
+
+updateServerInfo();
+</script>
+
+</body>
+</html>
