@@ -1052,3 +1052,50 @@ footer {
     position: relative;
     z-index: 2;
 }
+
+
+.status-green {
+    color: #4cff4c !important;
+}
+
+.status-red {
+    color: #ff4c4c !important;
+}
+
+.status-yellow {
+    color: #ffe54c !important;
+}
+
+
+/* Duruma göre badge renkleri */
+.badge.status-green {
+    background: rgba(0, 180, 0, 0.25);
+    border-color: rgba(0, 255, 0, 0.5);
+}
+
+.badge.status-yellow {
+    background: rgba(255, 200, 0, 0.25);
+    border-color: rgba(255, 200, 0, 0.5);
+}
+
+.badge.status-red {
+    background: rgba(255, 0, 0, 0.25);
+    border-color: rgba(255, 0, 0, 0.5);
+}
+
+
+.badge-dot.status-green {
+    background: #00ff55;
+    box-shadow: 0 0 10px #00ff55;
+}
+
+.badge-dot.status-yellow {
+    background: #ffd800;
+    box-shadow: 0 0 10px #ffd800;
+}
+
+.badge-dot.status-red {
+    background: #ff0022;
+    box-shadow: 0 0 10px #ff0022;
+}
+
