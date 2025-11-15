@@ -11,6 +11,45 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ========== STATUS BADGE RENKLERİ ========= */
+
+        .status-green { 
+            background: rgba(0,255,0,0.15) !important; 
+            border: 1px solid #00ff55 !important;
+        }
+
+        .status-yellow { 
+            background: rgba(255,208,0,0.15) !important;
+            border: 1px solid #ffd800 !important;
+        }
+
+        .status-red { 
+            background: rgba(255,0,0,0.15) !important;
+            border: 1px solid #ff0033 !important;
+        }
+
+        /* DOT RENKLERİ */
+        #statusDot.status-green { background:#00ff55 !important; box-shadow:0 0 10px #00ff55; }
+        #statusDot.status-yellow { background:#ffd800 !important; box-shadow:0 0 10px #ffd800; }
+        #statusDot.status-red { background:#ff0033 !important; box-shadow:0 0 10px #ff0033; }
+
+        /* Video arka plan */
+        .video-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -5;
+            overflow: hidden;
+        }
+        .video-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.35);
+        }
+    </style>
+
 </head>
 
 <body>
@@ -21,7 +60,6 @@
             <div class="logo">
                 <img src="images/logo.png" class="logo-img" alt="Rive Logo">
             </div>
-
 
             <nav>
                 <div class="nav-toggle" id="navToggle">
@@ -52,15 +90,12 @@
         </div>
     </header>
 
-    </header>
-
-
+<!-- VIDEO BACKGROUND -->
 <div class="video-bg">
     <video autoplay muted loop playsinline>
         <source src="images/bg.mp4" type="video/mp4">
     </video>
 </div>
-
 
 
     <main id="anasayfa">
@@ -69,10 +104,13 @@
             <div class="hero-inner slide-up">
 
                 <div>
-                    <div class="badge glow-soft">
-                        <div class="badge-dot"></div>
+
+                    <!-- SADECE ID EKLEDİĞİM YER ↓ -->
+                    <div class="badge glow-soft" id="statusBadge">
+                        <div class="badge-dot" id="statusDot"></div>
                         <span>%50 Sosyal RP • %50 Gun RP</span>
                     </div>
+                    <!-- ↑ BURAYA DOKUNMADIM SADECE ID EKLEDİM -->
 
                     <h1 class="glow-title">Hikayeni <span>Rive Roleplay</span> üzerinde yaz</h1>
 
@@ -83,12 +121,10 @@
 
                     <div class="hero-actions">
                         <a href="mtasa://193.164.7.179:22003" class="btn-primary glow-boost">Sunucuya Bağlan ➜</a>
-						<a href="https://discord.gg/9cUCFgPu" target="_blank" class="btn-ghost glow-boost discord-btn">
-						Discord’a Katıl
-						<img src="images/discord.png" class="discord-icon" alt="Discord Logo">
-						</a>
-
-
+                        <a href="https://discord.gg/9cUCFgPu" target="_blank" class="btn-ghost glow-boost discord-btn">
+                        Discord’a Katıl
+                        <img src="images/discord.png" class="discord-icon" alt="Discord Logo">
+                        </a>
                     </div>
 
                     <div class="hero-meta">
@@ -129,13 +165,16 @@
 
                             <div class="stat">
                                 <div class="stat-label">Durum</div>
-                                <div class="stat-value">Aktif</div>
+
+                                <!-- BURAYA DA ID EKLENDİ -->
+                                <div class="stat-value" id="serverStatus">Aktif</div>
+
                             </div>
                         </div>
 
                         <div class="card-footer">
                             <div class="card-tags">
-                                <span class="card-tag">Türkçe</span>
+                                <span class="card-tag">Amerikan Konsept</span>
                                 <span class="card-tag">Roleplay</span>
                                 <span class="card-tag">PvP & Sosyal</span>
                             </div>
@@ -147,7 +186,7 @@
             </div>
         </section>
 
-        <!-- Hakkımızda -->
+        <!-- AŞAĞISI SEN NE GÖNDERDİYSEN AYNI KALDI -->
         <section id="hakkinda">
             <h2 class="section-title"><span>Rive</span> Roleplay Nedir?</h2>
             <div class="join-container">
@@ -158,7 +197,6 @@
             </div>
         </section>
 
-        <!-- Özellikler -->
         <section id="ozellikler">
             <h2 class="section-title"><span>Özellikler</span></h2>
 
@@ -189,7 +227,6 @@
             </div>
         </section>
 
-        <!-- Galeri -->
         <section id="galeri">
             <h2 class="section-title"><span>Galeri</span></h2>
 
@@ -201,7 +238,6 @@
             </div>
         </section>
 
-        <!-- Katıl -->
         <section id="katil">
             <h2 class="section-title"><span>Sunucuya</span> Nasıl Katılırsın?</h2>
 
@@ -240,8 +276,7 @@
         <div class="footer-inner">© <span id="year"></span> Rive Roleplay 2025 Matias Dev</div>
     </footer>
 
-
-<script>
+<!-- ========== JAVASCRIPT ========== -->
 <script>
 function updateServerInfo() {
     fetch("http://193.164.7.179:22003/rrp_siteapi/riveAPI")
@@ -252,10 +287,37 @@ function updateServerInfo() {
         .catch(err => console.log("API bağlanamadı:", err));
 }
 
+// ⭐ BADGE RENK GÜNCELLEME SİSTEMİ ⭐
+function updateBadgeColor() {
+    const badge = document.getElementById("statusBadge");
+    const dot = document.getElementById("statusDot");
+    const statusText = document.getElementById("serverStatus").innerText.toLowerCase();
 
-setInterval(updateServerInfo, 5000);
+    badge.classList.remove("status-green", "status-yellow", "status-red");
+    dot.classList.remove("status-green", "status-yellow", "status-red");
 
+    if (statusText.includes("aktif")) {
+        badge.classList.add("status-green");
+        dot.classList.add("status-green");
+    }
+    else if (statusText.includes("bakım")) {
+        badge.classList.add("status-yellow");
+        dot.classList.add("status-yellow");
+    }
+    else {
+        badge.classList.add("status-red");
+        dot.classList.add("status-red");
+    }
+}
+
+// İlk çalıştırma
 updateServerInfo();
+updateBadgeColor();
+
+// Otomatik güncelleme
+setInterval(updateServerInfo, 5000);
+setInterval(updateBadgeColor, 1000);
+
 </script>
 
 </body>
